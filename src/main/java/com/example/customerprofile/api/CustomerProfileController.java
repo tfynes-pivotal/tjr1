@@ -31,7 +31,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-
 @OpenAPIDefinition(
         info = @Info(
                 title = "Customer Profile Management API",
@@ -137,5 +136,3 @@ public class CustomerProfileController {
         return ResponseEntity.ok(all);
     }
 }
-
-@SecurityScheme(type = SecuritySchemeType.APIKEY, name = "api_key", in = SecuritySchemeIn.HEADER)
