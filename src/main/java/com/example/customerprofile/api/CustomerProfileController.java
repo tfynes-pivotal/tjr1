@@ -16,6 +16,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +37,10 @@ import javax.validation.Valid;
                 title = "Customer Profile Management API",
                 version = "1.0"),
         tags = @Tag(
-                name = "Customer Profile REST API"))
+                name = "Customer Profile REST API"),
+        security = @SecurityRequirement(
+                name = "api_key")
+                )
 @CrossOrigin
 @RestController
 @RequestMapping("/api/customer-profiles")
@@ -133,3 +137,5 @@ public class CustomerProfileController {
         return ResponseEntity.ok(all);
     }
 }
+
+@SecurityScheme(type = SecuritySchemeType.APIKEY, name = "api_key", in = SecuritySchemeIn.HEADER)
