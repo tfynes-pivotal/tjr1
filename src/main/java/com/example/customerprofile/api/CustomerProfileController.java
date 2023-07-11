@@ -37,8 +37,8 @@ import javax.validation.Valid;
                 version = "1.0"),
         tags = @Tag(
                 name = "Customer Profile REST API"),
-        security = @SecurityRequirement(
-                name = "api_key")
+        security = { @SecurityRequirement(
+                name = "api_key")}
                 )
 @CrossOrigin
 @RestController
